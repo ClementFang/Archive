@@ -73,7 +73,7 @@ button {
   white-space: nowrap;、
   
     /* 垂直拉長 */
-  transform: scaleY(1.25);
+  transform: scaleY(1.6);
   transform-origin: left center;
 }
 
