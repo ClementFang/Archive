@@ -56,7 +56,7 @@ if (logo && logoText) {
       ending = ending.slice(0, -1);
       render(middle, ending);
 
-      await wait(24);
+      await wait(30);
     }
 
     /* 刪除 C 與 F 之間的文字，留下 CF */
@@ -66,7 +66,7 @@ if (logo && logoText) {
       middle = middle.slice(0, -1);
       render(middle, ending);
 
-      await wait(24);
+      await wait(30);
     }
 
     await wait(120);
