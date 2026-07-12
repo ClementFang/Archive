@@ -43,33 +43,53 @@ a {
   backdrop-filter: blur(10px);
 }
 
-.name {
-  font-size: 15px;
+.name-switch {
+  display: inline-grid;
+  color: inherit;
+  text-decoration: none;
+
+  font-size: 24px;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  line-height: 1;
+  letter-spacing: -0.04em;
+
+  cursor: pointer;
 }
 
-.header p {
-  margin: 5px 0 0;
-  color: var(--secondary);
-  font-family: "Courier New", monospace;
-  font-size: 11px;
+/* 兩個文字放在完全相同的位置 */
+.name-switch span {
+  grid-column: 1;
+  grid-row: 1;
+
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
 }
 
-nav {
-  display: flex;
-  gap: 24px;
+/* 平時顯示 CloudFunding */
+.name-default {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-nav a {
-  font-family: "Courier New", monospace;
-  font-size: 12px;
+/* 平時隱藏 ClementFang */
+.name-hover {
+  opacity: 0;
+  transform: translateY(4px);
 }
 
-nav a:hover {
-  text-decoration: underline;
+/* 滑鼠移上去後切換 */
+.name-switch:hover .name-default,
+.name-switch:focus-visible .name-default {
+  opacity: 0;
+  transform: translateY(-4px);
 }
 
+.name-switch:hover .name-hover,
+.name-switch:focus-visible .name-hover {
+  opacity: 1;
+  transform: translateY(0);
+}
 .intro {
   min-height: 55vh;
   display: flex;
