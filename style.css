@@ -59,7 +59,7 @@ button {
   text-decoration: none;
 
   font-family: "Times New Roman", Times, serif;
-  font-size: clamp(25px, 2.3vw, 42px);
+  font-size: clamp(50px, 5vw, 82px);
   font-weight: 900;
   line-height: 0.92;
   letter-spacing: -0.02em;
