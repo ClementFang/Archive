@@ -69,7 +69,7 @@ if (logo && logoText) {
       await wait(30);
     }
 
-    await wait(120);
+    await wait(80);
 
     /* 在 C 與 F 之間打出新文字 */
     for (
@@ -82,7 +82,7 @@ if (logo && logoText) {
       middle = targetParts.middle.slice(0, index);
       render(middle, ending);
 
-      await wait(55);
+      await wait(60);
     }
 
     /* 在 F 後面打出新文字 */
@@ -96,7 +96,7 @@ if (logo && logoText) {
       ending = targetParts.ending.slice(0, index);
       render(middle, ending);
 
-      await wait(55);
+      await wait(60);
     }
   }
 
