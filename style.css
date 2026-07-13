@@ -71,7 +71,6 @@ button {
 .type-logo-text {
   display: inline-block;
   white-space: nowrap;
-
   transform: scaleX(1.08) scaleY(2);
   transform-origin: left center;
 }
