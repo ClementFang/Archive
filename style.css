@@ -40,7 +40,6 @@ button {
   top: 40px;
   left: 22px;
   z-index: 1000;
-
   width: auto;
   padding: 0;
   background: transparent;
@@ -68,7 +67,7 @@ button {
   display: inline-block;
   white-space: nowrap;
   transform: scaleX(1.08) scaleY(2);
-  transform-origin: left center;
+  transform-origin: left top;
 }
 
 /* 名字後面的打字游標 */
