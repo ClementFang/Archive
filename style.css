@@ -67,19 +67,23 @@ img {
 
   width: max-content;
   height: auto;
-  padding-right: 6px;
+  padding-right: 5px;
 
   color: inherit;
   text-decoration: none;
 
   font-family: "Anton", sans-serif;
-  font-size: clamp(28px, 2.8vw, 44px);
+  font-size: clamp(22px, 2vw, 34px);
   font-weight: 400;
-  line-height: 1;
+  line-height: 0.9;
   letter-spacing: -0.015em;
 
   white-space: nowrap;
   cursor: pointer;
+
+  /* 整體 Y 軸壓扁 */
+  transform: scaleY(0.82);
+  transform-origin: left top;
 }
 
 /* 隐形放入 CloudFunding，用来计算宽度 */
@@ -93,7 +97,6 @@ img {
   pointer-events: none;
 }
 
-/* 隐形放入 ClementFang，用来计算宽度 */
 .type-logo::after {
   content: attr(data-hover);
 
