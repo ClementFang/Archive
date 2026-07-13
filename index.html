@@ -1,14 +1,21 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CloudFunding — ClementFang</title>
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Clement Fang Archive</title>
+
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+  <!-- 固定动态 Logo -->
   <header class="header">
     <a
       class="type-logo"
@@ -17,37 +24,55 @@
       data-hover="ClementFang"
       aria-label="CloudFunding — ClementFang"
     >
-      <span class="type-logo-text" aria-hidden="true">CloudFunding</span>
+      <span
+        class="type-logo-text"
+        aria-hidden="true"
+      >CloudFunding</span>
     </a>
   </header>
 
+
+  <!-- 两个互动分类按钮 -->
+  <nav
+    class="category-switch"
+    role="tablist"
+    aria-label="Portfolio categories"
+  >
+
+    <button
+      id="illustration-tab"
+      class="category-button is-active"
+      type="button"
+      role="tab"
+      aria-selected="true"
+      aria-controls="illustration-panel"
+      data-category-target="illustration-panel"
+    >
+      Illustration
+    </button>
+
+    <button
+      id="projects-tab"
+      class="category-button"
+      type="button"
+      role="tab"
+      aria-selected="false"
+      aria-controls="projects-panel"
+      data-category-target="projects-panel"
+      tabindex="-1"
+    >
+      Projects
+    </button>
+
+  </nav>
+
+
   <main class="work-index">
 
-    <div class="category-switch" role="tablist" aria-label="Work categories">
-      <button
-        id="illustration-tab"
-        class="category-button is-active"
-        type="button"
-        role="tab"
-        aria-selected="true"
-        aria-controls="illustration-panel"
-        data-category-target="illustration-panel"
-      >
-        Illustration
-      </button>
-
-      <button
-        id="projects-tab"
-        class="category-button"
-        type="button"
-        role="tab"
-        aria-selected="false"
-        aria-controls="projects-panel"
-        data-category-target="projects-panel"
-      >
-        Projects
-      </button>
-    </div>
+    <!-- =========================
+         Illustration
+         自由、错落排版
+    ========================== -->
 
     <section
       id="illustration-panel"
@@ -55,13 +80,25 @@
       role="tabpanel"
       aria-labelledby="illustration-tab"
     >
+
       <div class="illustration-grid">
 
-        <article class="work-card illustration-card illustration-card--one">
+        <article class="work-card illustration-card--1">
           <a href="#">
-            <div class="work-media media-landscape" data-placeholder="ILL—01">
-              <img src="assets/illustration/illustration-01.jpg" alt="Spatial Drawing No. 01">
+            <div class="work-media media--landscape">
+
+              <img
+                src="assets/illustration/illustration-01.jpg"
+                alt="Spatial Drawing No. 01"
+                onerror="this.hidden=true"
+              >
+
+              <span class="image-fallback">
+                Add image
+              </span>
+
             </div>
+
             <div class="work-caption">
               <h2>Spatial Drawing No. 01</h2>
               <time datetime="2026">2026</time>
@@ -69,11 +106,23 @@
           </a>
         </article>
 
-        <article class="work-card illustration-card illustration-card--two">
+
+        <article class="work-card illustration-card--2">
           <a href="#">
-            <div class="work-media media-portrait" data-placeholder="ILL—02">
-              <img src="assets/illustration/illustration-02.jpg" alt="Material Landscape">
+            <div class="work-media media--portrait">
+
+              <img
+                src="assets/illustration/illustration-02.jpg"
+                alt="Material Landscape"
+                onerror="this.hidden=true"
+              >
+
+              <span class="image-fallback">
+                Add image
+              </span>
+
             </div>
+
             <div class="work-caption">
               <h2>Material Landscape</h2>
               <time datetime="2026">2026</time>
@@ -81,11 +130,23 @@
           </a>
         </article>
 
-        <article class="work-card illustration-card illustration-card--three">
+
+        <article class="work-card illustration-card--3">
           <a href="#">
-            <div class="work-media media-square" data-placeholder="ILL—03">
-              <img src="assets/illustration/illustration-03.jpg" alt="Cloud Archive">
+            <div class="work-media media--square">
+
+              <img
+                src="assets/illustration/illustration-03.jpg"
+                alt="Cloud Archive"
+                onerror="this.hidden=true"
+              >
+
+              <span class="image-fallback">
+                Add image
+              </span>
+
             </div>
+
             <div class="work-caption">
               <h2>Cloud Archive</h2>
               <time datetime="2025">2025</time>
@@ -93,11 +154,23 @@
           </a>
         </article>
 
-        <article class="work-card illustration-card illustration-card--four">
+
+        <article class="work-card illustration-card--4">
           <a href="#">
-            <div class="work-media media-wide" data-placeholder="ILL—04">
-              <img src="assets/illustration/illustration-04.jpg" alt="Field Study">
+            <div class="work-media media--wide">
+
+              <img
+                src="assets/illustration/illustration-04.jpg"
+                alt="Field Study"
+                onerror="this.hidden=true"
+              >
+
+              <span class="image-fallback">
+                Add image
+              </span>
+
             </div>
+
             <div class="work-caption">
               <h2>Field Study</h2>
               <time datetime="2025">2025</time>
@@ -105,25 +178,49 @@
           </a>
         </article>
 
-        <article class="work-card illustration-card illustration-card--five">
+
+        <article class="work-card illustration-card--5">
           <a href="#">
-            <div class="work-media media-portrait" data-placeholder="ILL—05">
-              <img src="assets/illustration/illustration-05.jpg" alt="Sectional Memory">
+            <div class="work-media media--portrait">
+
+              <img
+                src="assets/illustration/illustration-05.jpg"
+                alt="Figure and Ground"
+                onerror="this.hidden=true"
+              >
+
+              <span class="image-fallback">
+                Add image
+              </span>
+
             </div>
+
             <div class="work-caption">
-              <h2>Sectional Memory</h2>
+              <h2>Figure and Ground</h2>
               <time datetime="2025">2025</time>
             </div>
           </a>
         </article>
 
-        <article class="work-card illustration-card illustration-card--six">
+
+        <article class="work-card illustration-card--6">
           <a href="#">
-            <div class="work-media media-landscape" data-placeholder="ILL—06">
-              <img src="assets/illustration/illustration-06.jpg" alt="Atmospheric Index">
+            <div class="work-media media--landscape">
+
+              <img
+                src="assets/illustration/illustration-06.jpg"
+                alt="Material Assembly"
+                onerror="this.hidden=true"
+              >
+
+              <span class="image-fallback">
+                Add image
+              </span>
+
             </div>
+
             <div class="work-caption">
-              <h2>Atmospheric Index</h2>
+              <h2>Material Assembly</h2>
               <time datetime="2024">2024</time>
             </div>
           </a>
@@ -132,6 +229,12 @@
       </div>
     </section>
 
+
+    <!-- =========================
+         Projects
+         整齐四栏排版
+    ========================== -->
+
     <section
       id="projects-panel"
       class="category-panel projects-panel"
@@ -139,13 +242,25 @@
       aria-labelledby="projects-tab"
       hidden
     >
+
       <div class="projects-grid">
 
-        <article class="work-card project-card">
+        <article class="work-card">
           <a href="#">
-            <div class="work-media media-landscape" data-placeholder="PRJ—01">
-              <img src="assets/projects/nottingham.jpg" alt="Nottingham Contemporary">
+            <div class="work-media project-media">
+
+              <img
+                src="assets/projects/nottingham.jpg"
+                alt="Nottingham Contemporary"
+                onerror="this.hidden=true"
+              >
+
+              <span class="image-fallback">
+                Add image
+              </span>
+
             </div>
+
             <div class="work-caption">
               <h2>Nottingham Contemporary</h2>
               <time datetime="2026">2026</time>
@@ -153,11 +268,23 @@
           </a>
         </article>
 
-        <article class="work-card project-card">
+
+        <article class="work-card">
           <a href="#">
-            <div class="work-media media-landscape" data-placeholder="PRJ—02">
-              <img src="assets/projects/bridge.jpg" alt="Bridge and Movement">
+            <div class="work-media project-media">
+
+              <img
+                src="assets/projects/bridge.jpg"
+                alt="Bridge and Movement"
+                onerror="this.hidden=true"
+              >
+
+              <span class="image-fallback">
+                Add image
+              </span>
+
             </div>
+
             <div class="work-caption">
               <h2>Bridge and Movement</h2>
               <time datetime="2026">2026</time>
@@ -165,11 +292,23 @@
           </a>
         </article>
 
-        <article class="work-card project-card">
+
+        <article class="work-card">
           <a href="#">
-            <div class="work-media media-portrait" data-placeholder="PRJ—03">
-              <img src="assets/projects/wind-mapping.jpg" alt="Wind Mapping Study">
+            <div class="work-media project-media">
+
+              <img
+                src="assets/projects/wind-mapping.jpg"
+                alt="Wind Mapping Study"
+                onerror="this.hidden=true"
+              >
+
+              <span class="image-fallback">
+                Add image
+              </span>
+
             </div>
+
             <div class="work-caption">
               <h2>Wind Mapping Study</h2>
               <time datetime="2025">2025</time>
@@ -177,11 +316,23 @@
           </a>
         </article>
 
-        <article class="work-card project-card">
+
+        <article class="work-card">
           <a href="#">
-            <div class="work-media media-square" data-placeholder="PRJ—04">
-              <img src="assets/projects/monobloc.jpg" alt="Monobloc Investigation">
+            <div class="work-media project-media">
+
+              <img
+                src="assets/projects/monobloc.jpg"
+                alt="Monobloc Investigation"
+                onerror="this.hidden=true"
+              >
+
+              <span class="image-fallback">
+                Add image
+              </span>
+
             </div>
+
             <div class="work-caption">
               <h2>Monobloc Investigation</h2>
               <time datetime="2025">2025</time>
@@ -189,11 +340,23 @@
           </a>
         </article>
 
-        <article class="work-card project-card">
+
+        <article class="work-card">
           <a href="#">
-            <div class="work-media media-wide" data-placeholder="PRJ—05">
-              <img src="assets/projects/east-bay.jpg" alt="East Bay Bike Path">
+            <div class="work-media project-media">
+
+              <img
+                src="assets/projects/east-bay.jpg"
+                alt="East Bay Bike Path"
+                onerror="this.hidden=true"
+              >
+
+              <span class="image-fallback">
+                Add image
+              </span>
+
             </div>
+
             <div class="work-caption">
               <h2>East Bay Bike Path</h2>
               <time datetime="2025">2025</time>
@@ -201,11 +364,23 @@
           </a>
         </article>
 
-        <article class="work-card project-card">
+
+        <article class="work-card">
           <a href="#">
-            <div class="work-media media-landscape" data-placeholder="PRJ—06">
-              <img src="assets/projects/two-children.jpg" alt="Two Children Looking at a Book">
+            <div class="work-media project-media">
+
+              <img
+                src="assets/projects/two-children.jpg"
+                alt="Two Children Looking at a Book"
+                onerror="this.hidden=true"
+              >
+
+              <span class="image-fallback">
+                Add image
+              </span>
+
             </div>
+
             <div class="work-caption">
               <h2>Two Children Looking at a Book</h2>
               <time datetime="2025">2025</time>
@@ -218,6 +393,8 @@
 
   </main>
 
+
   <script src="script.js"></script>
+
 </body>
 </html>
