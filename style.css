@@ -1,10 +1,9 @@
 :root {
   --background: #11110d;
-  --text: #f4f1ea;
-  --secondary: #9a998f;
-  --line: rgba(244, 241, 234, 0.26);
-  --placeholder: #20201b;
-  --placeholder-alt: #2a2923;
+  --text: #f3f2ee;
+  --secondary: #9c9b94;
+  --line: rgba(243, 242, 238, 0.35);
+  --panel: #1a1a17;
 }
 
 * {
@@ -17,9 +16,10 @@ html {
 
 body {
   margin: 0;
-  padding: 0 28px;
+
   background: var(--background);
   color: var(--text);
+
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -32,21 +32,24 @@ button {
   font: inherit;
 }
 
+img {
+  display: block;
+  max-width: 100%;
+}
+
 
 /* =========================
-   Fixed transparent logo
+   Fixed transparent Logo
 ========================= */
 
 .header {
   position: fixed;
-  top: 40px;
+  top: 32px;
   left: 28px;
   z-index: 1000;
 
   width: auto;
-  height: auto;
   padding: 0;
-  margin: 0;
 
   background: transparent;
   border: 0;
@@ -56,13 +59,15 @@ button {
   -webkit-backdrop-filter: none;
 }
 
-/* 固定感應區域，文字縮短為 CF 時不會重複觸發 */
+
+/* 固定感应区域，避免动画反复触发 */
+
 .type-logo {
   display: block;
   position: relative;
 
-  width: 11em;
-  height: 2.35em;
+  width: 10em;
+  height: 2.1em;
 
   color: inherit;
   text-decoration: none;
@@ -77,6 +82,7 @@ button {
   cursor: pointer;
 }
 
+
 .type-logo-text {
   display: inline-block;
   white-space: nowrap;
@@ -87,7 +93,9 @@ button {
   pointer-events: none;
 }
 
-/* 閃爍打字游標 */
+
+/* 名字后方闪烁光标 */
+
 .type-logo-text::after {
   content: "";
   display: inline-block;
@@ -99,8 +107,13 @@ button {
   background: currentColor;
   vertical-align: -0.06em;
 
-  animation: cursor-blink 0.72s steps(1, end) infinite;
+  animation:
+    cursor-blink
+    0.8s
+    steps(1, end)
+    infinite;
 }
+
 
 @keyframes cursor-blink {
   0%,
@@ -114,20 +127,10 @@ button {
   }
 }
 
+
 .type-logo:focus-visible {
   outline: 1px solid currentColor;
-  outline-offset: 8px;
-}
-
-
-/* =========================
-   Main layout
-========================= */
-
-.work-index {
-  width: 100%;
-  padding-top: 220px;
-  padding-bottom: 140px;
+  outline-offset: 7px;
 }
 
 
@@ -136,12 +139,15 @@ button {
 ========================= */
 
 .category-switch {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  position: fixed;
+  top: 38px;
+  right: 28px;
+  z-index: 1000;
 
-  margin-bottom: 82px;
+  display: flex;
+  gap: 10px;
 }
+
 
 .category-button {
   padding: 10px 22px;
@@ -152,89 +158,114 @@ button {
   background: transparent;
   color: var(--text);
 
-  font-family: "Courier New", Courier, monospace;
+  font-family:
+    "Courier New",
+    Courier,
+    monospace;
+
   font-size: 15px;
   line-height: 1;
 
   cursor: pointer;
 
   transition:
-    background 150ms ease,
-    color 150ms ease,
-    opacity 150ms ease;
+    background 160ms ease,
+    color 160ms ease,
+    opacity 160ms ease;
 }
 
+
 .category-button:hover {
-  opacity: 0.62;
+  opacity: 0.65;
 }
+
 
 .category-button.is-active {
   background: var(--text);
   color: var(--background);
 }
 
+
 .category-button:focus-visible {
-  outline: 1px solid var(--text);
+  outline: 2px solid var(--text);
   outline-offset: 4px;
 }
 
 
 /* =========================
-   Panels
+   Main category panels
 ========================= */
 
-.category-panel {
+.work-index {
+  min-height: 100vh;
+
+  padding:
+    210px
+    28px
+    140px;
+}
+
+
+.category-panel[hidden] {
   display: none;
 }
 
+
 .category-panel.is-active {
-  display: block;
+  animation:
+    panel-in
+    280ms
+    ease
+    both;
+}
+
+
+@keyframes panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 
 /* =========================
-   Shared cards
+   Shared work cards
 ========================= */
 
 .work-card {
   min-width: 0;
 }
 
+
 .work-card a {
   display: block;
 }
 
+
 .work-media {
   position: relative;
-  width: 100%;
   overflow: hidden;
 
-  background:
-    linear-gradient(
-      135deg,
-      var(--placeholder),
-      var(--placeholder-alt)
-    );
+  width: 100%;
+
+  background: var(--panel);
+
+  border:
+    1px
+    solid
+    rgba(243, 242, 238, 0.12);
 }
 
-.media-landscape {
-  aspect-ratio: 4 / 3;
-}
-
-.media-portrait {
-  aspect-ratio: 3 / 4;
-}
-
-.media-square {
-  aspect-ratio: 1 / 1;
-}
-
-.media-wide {
-  aspect-ratio: 16 / 10;
-}
 
 .work-media img {
-  display: block;
+  position: relative;
+  z-index: 1;
+
   width: 100%;
   height: 100%;
 
@@ -242,138 +273,171 @@ button {
 
   transition:
     opacity 180ms ease,
-    transform 360ms ease;
+    transform 400ms ease;
 }
 
-/* 圖片還沒上傳時，自動顯示代號 */
-.work-media::after {
-  content: attr(data-placeholder);
 
+.image-fallback {
   position: absolute;
   inset: 0;
 
-  display: none;
+  display: grid;
   place-items: center;
 
   color: var(--secondary);
 
-  font-family: "Courier New", Courier, monospace;
-  font-size: 12px;
+  font-family:
+    "Courier New",
+    Courier,
+    monospace;
+
+  font-size: 11px;
   letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
-.work-media.is-placeholder::after {
-  display: grid;
-}
-
-.work-media.is-placeholder img {
-  display: none;
-}
 
 .work-card:hover img {
-  opacity: 0.76;
+  opacity: 0.78;
   transform: scale(1.015);
 }
+
 
 .work-caption {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+
   gap: 20px;
 
   padding-top: 12px;
 }
 
+
 .work-caption h2 {
   margin: 0;
 
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
   font-weight: 400;
-  line-height: 1.28;
+  line-height: 1.3;
 }
+
 
 .work-caption time {
   flex: 0 0 auto;
 
-  font-family: "Courier New", Courier, monospace;
+  color: var(--secondary);
+
+  font-family:
+    "Courier New",
+    Courier,
+    monospace;
+
   font-size: 11px;
-  line-height: 1.45;
+  line-height: 1.5;
+}
+
+
+/* 图片比例 */
+
+.media--landscape {
+  aspect-ratio: 4 / 3;
+}
+
+.media--portrait {
+  aspect-ratio: 3 / 4;
+}
+
+.media--square {
+  aspect-ratio: 1 / 1;
+}
+
+.media--wide {
+  aspect-ratio: 16 / 10;
+}
+
+.project-media {
+  aspect-ratio: 4 / 3;
 }
 
 
 /* =========================
    Illustration layout
-   自由錯落
+   自由错落排版
 ========================= */
 
 .illustration-grid {
   display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  grid-auto-flow: row;
 
-  column-gap: clamp(18px, 3.2vw, 60px);
-  row-gap: clamp(100px, 12vw, 190px);
+  grid-template-columns:
+    repeat(12, minmax(0, 1fr));
+
+  gap:
+    clamp(70px, 9vw, 150px)
+    clamp(20px, 3.5vw, 60px);
 
   align-items: start;
 }
 
-.illustration-card--one {
-  grid-column: 1 / span 5;
+
+.illustration-card--1 {
+  grid-column: 1 / span 4;
   grid-row: 1;
 }
 
-.illustration-card--two {
-  grid-column: 8 / span 4;
+
+.illustration-card--2 {
+  grid-column: 6 / span 3;
   grid-row: 1;
+
   margin-top: 7vw;
 }
 
-.illustration-card--three {
-  grid-column: 2 / span 3;
+
+.illustration-card--3 {
+  grid-column: 10 / span 3;
+  grid-row: 1;
+
+  margin-top: 1vw;
+}
+
+
+.illustration-card--4 {
+  grid-column: 2 / span 5;
   grid-row: 2;
 }
 
-.illustration-card--four {
-  grid-column: 6 / span 6;
-  grid-row: 2;
-  margin-top: 4vw;
-}
 
-.illustration-card--five {
-  grid-column: 1 / span 4;
-  grid-row: 3;
-  margin-top: 2vw;
-}
-
-.illustration-card--six {
+.illustration-card--5 {
   grid-column: 8 / span 4;
+  grid-row: 2;
+
+  margin-top: 9vw;
+}
+
+
+.illustration-card--6 {
+  grid-column: 4 / span 4;
   grid-row: 3;
-  margin-top: 8vw;
 }
 
 
 /* =========================
    Projects layout
-   規整建築網格
+   整齐四栏排版
 ========================= */
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
 
-  column-gap: clamp(22px, 3vw, 52px);
-  row-gap: clamp(82px, 9vw, 145px);
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap:
+    clamp(70px, 8vw, 135px)
+    clamp(22px, 3vw, 52px);
 
   align-items: start;
-}
-
-.project-card:nth-child(4n + 2) {
-  margin-top: 3vw;
-}
-
-.project-card:nth-child(4n + 4) {
-  margin-top: 6vw;
 }
 
 
@@ -381,42 +445,29 @@ button {
    Tablet
 ========================= */
 
-@media (max-width: 1050px) {
+@media (max-width: 1000px) {
+
   .work-index {
-    padding-top: 185px;
+    padding-top: 190px;
   }
 
-  .category-switch {
-    margin-bottom: 60px;
+  .illustration-grid,
+  .projects-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 80px 28px;
   }
 
-  .illustration-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 85px 30px;
-  }
-
-  .illustration-card--one,
-  .illustration-card--two,
-  .illustration-card--three,
-  .illustration-card--four,
-  .illustration-card--five,
-  .illustration-card--six {
+  .illustration-card--1,
+  .illustration-card--2,
+  .illustration-card--3,
+  .illustration-card--4,
+  .illustration-card--5,
+  .illustration-card--6 {
     grid-column: auto;
     grid-row: auto;
     margin-top: 0;
-  }
-
-  .projects-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .project-card:nth-child(4n + 2),
-  .project-card:nth-child(4n + 4) {
-    margin-top: 0;
-  }
-
-  .project-card:nth-child(even) {
-    margin-top: 5vw;
   }
 }
 
@@ -425,45 +476,52 @@ button {
    Mobile
 ========================= */
 
-@media (max-width: 620px) {
-  body {
-    padding: 0 16px;
-  }
+@media (max-width: 680px) {
 
   .header {
-    top: 26px;
+    top: 22px;
     left: 16px;
   }
 
   .type-logo {
-    width: 11em;
-    height: 2.2em;
-    font-size: 32px;
+    width: 9em;
+    height: 1.9em;
+
+    font-size: 34px;
   }
 
-  .work-index {
-    padding-top: 145px;
-    padding-bottom: 85px;
+  .type-logo-text {
+    transform:
+      scaleX(1.04)
+      scaleY(1.4);
   }
 
   .category-switch {
+    top: 105px;
+    left: 16px;
+    right: auto;
+
     gap: 7px;
-    margin-bottom: 48px;
   }
 
   .category-button {
     padding: 9px 15px;
+
     font-size: 12px;
+  }
+
+  .work-index {
+    padding:
+      175px
+      16px
+      90px;
   }
 
   .illustration-grid,
   .projects-grid {
     grid-template-columns: 1fr;
-    row-gap: 68px;
-  }
 
-  .project-card:nth-child(even) {
-    margin-top: 0;
+    gap: 68px;
   }
 
   .work-caption h2 {
@@ -472,21 +530,17 @@ button {
 }
 
 
-/* =========================
-   Reduced motion
-========================= */
+/* 减少动画模式 */
 
 @media (prefers-reduced-motion: reduce) {
+
   html {
     scroll-behavior: auto;
   }
 
-  .type-logo-text::after {
-    animation: none;
-    opacity: 1;
-  }
-
+  .category-panel.is-active,
   .work-media img {
+    animation: none;
     transition: none;
   }
 }
