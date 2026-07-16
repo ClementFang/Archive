@@ -67,7 +67,7 @@ window.PORTFOLIO_WORKS = {
     {
       type: "youtube",
       youtubeId: "cqJyOxv1dtM",
-      caption: ""
+      caption: "Stop & Look"
     }
   ]
 },
