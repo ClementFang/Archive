@@ -20,8 +20,8 @@ window.PORTFOLIO_WORKS = {
   illustration: [
     {
       id: "ILL-001",
-      title: "Spatial Drawing No. 01",
-      year: "2026",
+      title: "",
+      year: "2025",
       cover: "ILL-001/cover.jpg",
       ratio: "landscape",
       layout: "one",
@@ -37,7 +37,7 @@ window.PORTFOLIO_WORKS = {
     {
       id: "ILL-002",
       title: "Material Landscape",
-      year: "2026",
+      year: "2025",
       cover: "ILL-002/cover.jpg",
       ratio: "portrait",
       layout: "two",
@@ -49,34 +49,50 @@ window.PORTFOLIO_WORKS = {
         { file: "ILL-002/process-01.jpg", caption: "Process 01" }
       ]
     },
+   {
+  id: "ILL-003",
+  title: "Stop & Look",
+  year: "2025",
+
+  previewVideo: "ILL-003/preview.mp4",
+
+  ratio: "square",
+  layout: "three",
+  fit: "cover",
+
+  medium: "Digital animation",
+  description: "Step, Look back, Move, Stop.",
+
+  gallery: [
     {
-      id: "ILL-003",
-      title: "Cloud Archive",
-      year: "2025",
-      cover: "ILL-003/cover.jpg",
-      ratio: "square",
-      layout: "three",
-      fit: "contain",
-      medium: "Mixed media",
-      description: "Replace this description with the final work statement.",
-      gallery: [
-        { file: "ILL-003/final.jpg", caption: "Final illustration" }
-      ]
-    },
+      type: "youtube",
+      youtubeId: "cqJyOxv1dtM",
+      caption: ""
+    }
+  ]
+},
     {
-      id: "ILL-004",
-      title: "Field Study",
-      year: "2025",
-      cover: "ILL-004/cover.jpg",
-      ratio: "wide",
-      layout: "four",
-      fit: "contain",
-      medium: "Digital illustration",
-      description: "Replace this description with the final work statement.",
-      gallery: [
-        { file: "ILL-004/final.jpg", caption: "Final illustration" }
-      ]
-    },
+  id: "ILL-004",
+  title: "くまもんの旅",
+  year: "2025",
+
+  previewVideo: "ILL-004/preview.mp4",
+
+  ratio: "square",
+  layout: "four",
+  fit: "cover",
+
+  medium: "Digital animation",
+  description: "旅へ",
+
+  gallery: [
+    {
+      type: "youtube",
+      youtubeId: "ItKRwbIBMCM",
+      caption: ""
+    }
+  ]
+},
     {
       id: "ILL-005",
       title: "Sectional Memory",
