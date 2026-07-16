@@ -33,44 +33,158 @@ function closeViewer() {
   if (viewerImage) viewerImage.src = "";
 }
 
-function createGalleryFigure(imageData, index) {
-  const figure = document.createElement("figure");
-  figure.className = index === 0
-    ? "artwork-image artwork-image--hero"
-    : "artwork-image";
+function createGalleryFigure(item, index) {
+  /*
+    YouTube video
+  */
+  if (
+    item.type === "youtube" &&
+    item.youtubeId
+  ) {
+    const figure =
+      document.createElement("figure");
 
-  const button = document.createElement("button");
-  button.className = "artwork-image-button";
+    figure.className =
+      index === 0
+        ? "artwork-image artwork-image--hero artwork-video"
+        : "artwork-image artwork-video";
+
+    const wrapper =
+      document.createElement("div");
+
+    wrapper.className = "youtube-embed";
+
+    const iframe =
+      document.createElement("iframe");
+
+    iframe.src =
+      `https://www.youtube-nocookie.com/embed/` +
+      `${encodeURIComponent(item.youtubeId)}` +
+      `?rel=0&playsinline=1`;
+
+    iframe.title =
+      item.caption ||
+      artwork.title ||
+      "YouTube video";
+
+    iframe.loading =
+      index === 0
+        ? "eager"
+        : "lazy";
+
+    iframe.allow =
+      "accelerometer; autoplay; clipboard-write; " +
+      "encrypted-media; gyroscope; picture-in-picture; web-share";
+
+    iframe.allowFullscreen = true;
+
+    iframe.setAttribute(
+      "referrerpolicy",
+      "strict-origin-when-cross-origin"
+    );
+
+    wrapper.appendChild(iframe);
+    figure.appendChild(wrapper);
+
+    if (item.caption) {
+      const caption =
+        document.createElement("figcaption");
+
+      caption.textContent =
+        item.caption;
+
+      figure.appendChild(caption);
+    }
+
+    return figure;
+  }
+
+  /*
+    Normal image
+  */
+  const figure =
+    document.createElement("figure");
+
+  figure.className =
+    index === 0
+      ? "artwork-image artwork-image--hero"
+      : "artwork-image";
+
+  const button =
+    document.createElement("button");
+
+  button.className =
+    "artwork-image-button";
+
   button.type = "button";
 
-  const image = document.createElement("img");
-  const imagePath = `assets/illustration/${imageData.file}?v=${encodeURIComponent(version)}`;
+  const image =
+    document.createElement("img");
+
+  const imagePath =
+    `assets/illustration/${item.file}` +
+    `?v=${encodeURIComponent(version)}`;
+
   image.src = imagePath;
-  image.alt = imageData.caption || artwork.title;
-  image.loading = index === 0 ? "eager" : "lazy";
+
+  image.alt =
+    item.caption ||
+    artwork.title;
+
+  image.loading =
+    index === 0
+      ? "eager"
+      : "lazy";
+
   image.decoding = "async";
 
-  const fallback = document.createElement("div");
-  fallback.className = "detail-placeholder";
-  fallback.textContent = imageData.caption || artwork.id;
+  const fallback =
+    document.createElement("div");
+
+  fallback.className =
+    "detail-placeholder";
+
+  fallback.textContent =
+    item.caption ||
+    artwork.id;
+
   fallback.hidden = true;
 
-  image.addEventListener("error", () => {
-    image.hidden = true;
-    fallback.hidden = false;
-    button.disabled = true;
-  }, { once: true });
+  image.addEventListener(
+    "error",
+    () => {
+      image.hidden = true;
+      fallback.hidden = false;
+      button.disabled = true;
+    },
+    { once: true }
+  );
 
-  button.append(image, fallback);
-  button.addEventListener("click", () => {
-    openViewer(imagePath, image.alt, imageData.caption);
-  });
+  button.append(
+    image,
+    fallback
+  );
+
+  button.addEventListener(
+    "click",
+    () => {
+      openViewer(
+        imagePath,
+        image.alt,
+        item.caption
+      );
+    }
+  );
 
   figure.appendChild(button);
 
-  if (imageData.caption) {
-    const caption = document.createElement("figcaption");
-    caption.textContent = imageData.caption;
+  if (item.caption) {
+    const caption =
+      document.createElement("figcaption");
+
+    caption.textContent =
+      item.caption;
+
     figure.appendChild(caption);
   }
 
